@@ -1,0 +1,25 @@
+* {
+  font-family: "Charm", serif;
+}
+
+/* HEADER, */
+
+#logo {
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.Selfies {
+  width: 40%;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+a {
+  color: black;
+}
+
+/* MAIN */
