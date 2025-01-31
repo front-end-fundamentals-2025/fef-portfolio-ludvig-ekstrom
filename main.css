@@ -2,7 +2,13 @@
   font-family: "Charm", serif;
 }
 
-/* HEADER, */
+/* HEADER */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 #logo {
   font-weight: 800;
@@ -11,15 +17,99 @@
 
 .Selfies {
   width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+
+/*------- GALLERY GRID CONTAINER---------- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /*-- 3 initial columns */
+  gap: 30px; /* Space between pics*/
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  justify-content: center; /* Center the grid*/
+}
+
+.grid-item {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Crop images to fit grid*/
+  border-radius: 15px; /* Optional rounded corners*/
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /*Optional Shadow effect*/
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Make somer images span more rows/columns*/
+.grid-item:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 ul {
+  display: flex;
   list-style: none;
   padding-left: 0px;
+}
+
+li {
+  margin-left: 3rem;
 }
 
 a {
   color: black;
 }
 
-/* MAIN */
+@media screen and (max-width: 500px) {
+  header,
+  ul {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-left: 0;
+  }
+
+  /* Switvhing to 2 columns*/
+  @media screen and (max-width: 700px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /*Preventing first image taking up to much space*/
+    .grid-item:nth-child(1) {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+
+  /*Switch to 1 column*/
+  @media screen and (max-width: 500x) {
+    header,
+    ul {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    ul {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    li {
+      margin-left: 0;
+    }
+
+    .grid-container {
+      grid-template-columns: 1fr; /*stitching to single column*/
+    }
+  }
+}

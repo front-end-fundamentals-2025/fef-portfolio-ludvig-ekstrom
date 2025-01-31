@@ -1,0 +1,28 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Dynamic columns */
+  grid-auto-rows: 200px; /* Default row height */
+  gap: 15px; /* Space between images */
+  padding: 20px;
+}
+
+.grid-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop images to fit grid cells */
+  border-radius: 10px; /* Optional rounded corners */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Optional shadow effect */
+}
+
+/* Make some images span more rows/columns */
+.grid-item:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.grid-item:nth-child(4) {
+  grid-row: span 2;
+}
