@@ -63,6 +63,9 @@ a {
 }
 
 @media screen and (max-width: 500px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
   header,
   ul {
     flex-direction: column;
@@ -81,7 +84,7 @@ a {
   /* Switvhing to 2 columns*/
   @media screen and (max-width: 700px) {
     .grid-container {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
 
     /*Preventing first image taking up to much space*/
@@ -90,26 +93,20 @@ a {
       grid-row: span 1;
     }
   }
+}
 
-  /*Switch to 1 column*/
-  @media screen and (max-width: 500x) {
-    header,
-    ul {
-      flex-direction: column;
-      align-items: start;
-    }
+.spinning {
+  width: 40%;
+  animation: spin 6s linear infinite;
+}
 
-    ul {
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-
-    li {
-      margin-left: 0;
-    }
-
-    .grid-container {
-      grid-template-columns: 1fr; /*stitching to single column*/
-    }
+@keyframes spin {
+  from {
+    rotate: none;
+  }
+  to {
+    rotate: -360deg;
   }
 }
+
+/*--MAKE THE SMALL GRID ONLY ONE COLUMN---*/
